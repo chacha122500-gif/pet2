@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHA:Z. | 하이엔드 프리미엄 웹디자인</title>
+    <title>CHA:Z. | 하이엔드 비즈니스 & 전문직 홈페이지</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -13,225 +13,221 @@
         
         body {
             font-family: 'Pretendard', sans-serif;
-            background-color: #111; 
+            background-color: #0A0A0A; /* 더욱 깊이감 있는 딥 블랙 */
             color: #fff;
             margin: 0;
             overflow-x: hidden;
         }
 
+        /* 프리미엄 에디토리얼 격자 배경 */
         .grid-lines {
             background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
+        /* 1섹션: 자동 가로 스크롤 (Marquee) */
         .marquee-wrapper { overflow: hidden; width: 100vw; }
-        .marquee-track { display: flex; width: max-content; animation: scrollMarquee 30s linear infinite; }
+        .marquee-track { display: flex; width: max-content; animation: scrollMarquee 40s linear infinite; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .portfolio-item { width: 300px; height: 200px; margin-right: 20px; background-size: cover; background-position: center; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
-        @media (min-width: 768px) { .portfolio-item { width: 500px; height: 320px; margin-right: 40px; } }
+        .portfolio-item { width: 350px; height: 240px; margin-right: 30px; background-size: cover; background-position: center; border-radius: 2px; filter: grayscale(20%); border: 1px solid rgba(255,255,255,0.05); }
+        @media (min-width: 768px) { .portfolio-item { width: 550px; height: 350px; margin-right: 50px; } }
 
+        /* 3섹션: GSAP 가로 스크롤 컨테이너 */
         .review-wrapper { width: 100%; height: 100vh; overflow: hidden; }
         .review-track { display: flex; width: 300vw; height: 100%; } 
         .review-panel { width: 100vw; height: 100%; display: flex; align-items: center; justify-content: center; padding: 2rem; }
 
+        /* VVIP 챗봇 애니메이션 */
         @keyframes pulse-ring {
-            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
             100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        .animate-chatbot { animation: pulse-ring 2s infinite; }
+        .animate-chatbot { animation: pulse-ring 2.5s infinite; }
         
-        .text-accent { color: #D4AF37; } 
-        .bg-accent { background-color: #D4AF37; }
+        .text-gold { color: #D4AF37; } 
+        .border-gold { border-color: #D4AF37; }
     </style>
 </head>
 <body class="grid-lines">
 
-    <header class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-40 bg-black/50 backdrop-blur-md text-white border-b border-white/10">
-        <h1 class="text-3xl font-black tracking-widest uppercase">CHA:Z.</h1>
-        <div class="text-sm font-semibold tracking-widest hidden md:block text-gray-400">HIGH-END WEB BOUTIQUE</div>
+    <header class="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40 bg-black/60 backdrop-blur-xl text-white border-b border-white/5">
+        <h1 class="text-3xl font-black tracking-[0.2em] uppercase">CHA:Z.</h1>
+        <div class="hidden md:flex gap-8 text-[10px] font-bold tracking-[0.3em] text-gray-400">
+            <span>MEDICAL</span>
+            <span>LEGAL</span>
+            <span>ARCHITECT</span>
+            <span>VENTURE</span>
+        </div>
     </header>
 
-    <a href="https://open.kakao.com/o/smhne33h" target="_blank" class="fixed bottom-8 right-8 z-50 flex items-center justify-center group">
-        <div class="absolute w-16 h-16 bg-[#D4AF37] rounded-full animate-chatbot -z-10"></div>
-        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center shadow-2xl border border-[#D4AF37] group-hover:bg-[#1a1a1a] transition-colors duration-300">
-            <svg class="w-8 h-8 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-5.523 0-10 3.538-10 7.9 0 2.83 1.83 5.304 4.595 6.67-.183.694-.666 2.502-.716 2.705-.084.34.126.335.267.24 1.116-.763 3.513-2.408 4.048-2.787.585.086 1.19.132 1.806.132 5.523 0 10-3.538 10-7.9s-4.477-7.9-10-7.9z"/></svg>
+    <a href="https://open.kakao.com/o/smhne33h" target="_blank" class="fixed bottom-10 right-10 z-50 flex items-center justify-center group">
+        <div class="absolute w-20 h-20 bg-[#D4AF37]/20 rounded-full animate-chatbot -z-10"></div>
+        <div class="w-16 h-16 bg-zinc-900 rounded-full flex items-center justify-center shadow-2xl border border-[#D4AF37] group-hover:scale-110 transition-transform duration-500">
+            <svg class="w-7 h-7 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-5.523 0-10 3.538-10 7.9 0 2.83 1.83 5.304 4.595 6.67-.183.694-.666 2.502-.716 2.705-.084.34.126.335.267.24 1.116-.763 3.513-2.408 4.048-2.787.585.086 1.19.132 1.806.132 5.523 0 10-3.538 10-7.9s-4.477-7.9-10-7.9z"/></svg>
         </div>
-        <span class="absolute -top-12 right-0 bg-[#D4AF37] text-black text-xs px-4 py-2 rounded-sm whitespace-nowrap font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity">VVIP 상담 예약</span>
+        <span class="absolute -top-14 right-0 bg-[#D4AF37] text-black text-[11px] px-5 py-2 rounded-sm whitespace-nowrap font-black shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">VVIP DIRECT CONSULTING</span>
     </a>
 
-    <section class="min-h-screen flex flex-col justify-center pt-32 pb-12 relative">
-        <div class="px-6 md:px-12 mb-10 md:mb-16 z-10">
-            <p class="text-[#D4AF37] font-bold tracking-widest mb-4">개원 전문 · 프리미엄 비즈니스 웹 기획</p>
-            <h2 class="text-4xl md:text-[6vw] font-black leading-tight tracking-tighter mb-6">
-                원장님의 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB]">압도적인 실력,</span><br>
-                홈페이지는 증명하고 있습니까?
+    <section class="min-h-screen flex flex-col justify-center pt-32 pb-12 relative px-6 md:px-20">
+        <div class="z-10 max-w-5xl">
+            <p class="text-[#D4AF37] font-bold tracking-[0.4em] text-xs mb-8 uppercase">Premium Business Web Solutions</p>
+            <h2 class="text-4xl md:text-[6.5vw] font-black leading-[1.1] tracking-tighter mb-10">
+                비즈니스의 가치를 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37]">증명하는 단 하나의 '격(格)'</span>
             </h2>
-            <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-400 max-w-3xl">
-                고객이 검색 후 가장 먼저 마주하는 곳.<br>
-                공장형 템플릿으로 당신의 격을 떨어뜨리지 마십시오.<br>
-                대형 에이전시의 퀄리티를 거품 없이 완성하는 하이엔드 부티크, CHA:Z.
+            <p class="text-lg md:text-2xl font-light leading-relaxed text-gray-400 max-w-3xl border-l border-white/20 pl-8">
+                귀하의 압도적인 전문성, 홈페이지는 그 품격을 온전히 담아내고 있습니까?<br>
+                대형 에이전시의 불필요한 거품을 걷어내고, 오직 비즈니스의 성공만을 설계하는<br>
+                10년 차 수석 디렉터 전담 하이엔드 부티크, CHA:Z.
             </p>
         </div>
         
-        <div class="marquee-wrapper relative z-10 mt-auto">
+        <div class="marquee-wrapper mt-20 md:mt-32">
             <div class="marquee-track">
-                <div class="portfolio-item shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="portfolio-item shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="portfolio-item shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="portfolio-item shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="portfolio-item shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="portfolio-item shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80');"></div>
             </div>
         </div>
     </section>
 
-    <section class="bg-zinc-900 border-y border-white/10">
-        <div class="flex flex-col md:flex-row min-h-[70vh]">
-            <div class="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-center relative z-10 border-r border-white/10">
-                <div class="text-accent font-bold text-sm tracking-widest mb-6">THE SMART CHOICE</div>
-                <h3 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
-                    수천만 원대 견적서,<br>
-                    절반은 에이전시의<br>임대료와 인건비입니다.
+    <section class="bg-zinc-950 border-y border-white/5">
+        <div class="flex flex-col md:flex-row min-h-[80vh]">
+            <div class="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-center border-r border-white/5">
+                <div class="text-[#D4AF37] font-bold text-xs tracking-[0.3em] mb-10">THE INTELLIGENT CHOICE</div>
+                <h3 class="text-3xl md:text-5xl font-bold leading-tight mb-10">
+                    수천만 원의 견적서가<br>
+                    반드시 최상의 결과를<br>보장하지는 않습니다.
                 </h3>
-                <p class="text-lg text-gray-400 mb-10 font-light leading-relaxed">
-                    CHA:Z.는 다릅니다. 커뮤니케이션 오류를 만드는 영업사원이나<br>
-                    기계적인 퍼블리셔가 없습니다.<br><br>
-                    기획, 디자인, 개발을 완벽히 통제하는 <b>10년 차 수석 디자이너 1인 전담 시스템</b>.<br>
-                    가장 효율적인 방식으로, 가장 하이엔드에 가까운 결과물을 납품합니다.
+                <p class="text-lg text-gray-500 font-light leading-loose max-w-xl">
+                    에이전시의 화려한 사옥 임대료와 영업 인건비가 대표님의 견적서에 포함되어 있지는 않습니까?<br><br>
+                    CHA:Z.는 의사결정자와 직접 소통합니다. 기획부터 디자인, 개발까지 <b>수석 디렉터가 1:1 전담</b>하여 커뮤니케이션의 오류를 없애고, 본질에 집중한 가장 강력한 비즈니스 도구를 납품합니다.
                 </p>
-                <div class="inline-flex border border-[#D4AF37] text-[#D4AF37] px-6 py-3 items-center gap-3 w-max">
-                    <span class="font-bold tracking-widest text-sm">프리미엄 프로젝트 100여 건 성공</span>
-                </div>
             </div>
-            <div class="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-center bg-black">
-                <ul class="space-y-12">
-                    <li class="flex items-start gap-6">
-                        <span class="text-4xl text-[#D4AF37]">01</span>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-2">월 유지보수 비용 0원</h4>
-                            <p class="text-gray-500 text-sm leading-relaxed">매달 지출되는 불필요한 빌더 구독료, 서버 관리비를 없앴습니다. 한 번의 결제로 사이트 소유권을 완벽히 넘겨드립니다.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-6">
-                        <span class="text-4xl text-[#D4AF37]">02</span>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-2">개원/론칭 맞춤 기획</h4>
-                            <p class="text-gray-500 text-sm leading-relaxed">바쁘신 대표님을 대신해, 경쟁사 분석부터 후킹성 카피라이팅까지 비즈니스 모델에 맞춰 직접 설계해 드립니다.</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="w-full md:w-1/2 bg-black flex flex-col justify-center p-12 md:p-24 space-y-20">
+                <div class="flex items-start gap-10">
+                    <span class="text-5xl font-black text-[#D4AF37]/20">01</span>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">고정 유지보수 비용 0원</h4>
+                        <p class="text-gray-500 font-light text-sm leading-relaxed">사이트 소유권의 완전한 이전을 보장합니다. 매달 지출되는 서버 관리비와 빌더 구독료를 제거하여 비즈니스 운용 효율을 극대화합니다.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-10">
+                    <span class="text-5xl font-black text-[#D4AF37]/20">02</span>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">비즈니스 맞춤 카피라이팅</h4>
+                        <p class="text-gray-500 font-light text-sm leading-relaxed">단순 기술자가 아닌 비즈니스 파트너로서, 타겟 시장을 분석하여 고객의 신뢰를 이끌어내는 고품격 카피라이팅을 직접 설계합니다.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="p-6 md:p-24 bg-black text-white border-t border-white/10">
-            <div class="mb-16 pb-8 flex flex-col md:flex-row md:justify-between md:items-end">
-                <h2 class="text-4xl md:text-5xl font-black tracking-tight">TRANSPARENT<br>INVESTMENT.</h2>
-                <p class="text-lg text-gray-500 mt-4 md:mt-0 md:text-right font-light">가치를 아는 분들을 위한 투명한 정찰제<br><span class="text-accent font-bold">서버/도메인 2년 무상 지원</span></p>
+        <div class="p-8 md:p-24 bg-black border-t border-white/5">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24">
+                <h2 class="text-4xl md:text-6xl font-black tracking-tight">INVESTMENT<br>PLAN.</h2>
+                <p class="text-sm font-light text-gray-500 mt-6 md:text-right uppercase tracking-[0.2em]">서버 및 도메인 2년 무상 지원 포함</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-10 border border-white/10 bg-zinc-900/50 hover:border-[#D4AF37]/50 transition duration-300">
-                    <h4 class="text-xl font-bold mb-2 tracking-widest text-gray-300">ESSENTIAL</h4>
-                    <p class="text-gray-500 mb-8 text-sm">개원 필수 원페이지</p>
-                    <div class="text-3xl font-black mb-8">90<span class="text-base font-normal text-gray-400"> 만원</span></div>
-                    <ul class="text-sm font-light space-y-4 text-gray-400">
-                        <li>· 하이엔드 맞춤 디자인 1P</li>
-                        <li>· 모바일 완벽 반응형</li>
-                        <li>· 실시간 카카오톡 상담 연동</li>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-12 border border-white/5 bg-zinc-900/30 hover:border-[#D4AF37]/40 transition-all duration-500">
+                    <h4 class="text-xs font-black tracking-[0.4em] mb-4 text-gray-500">SIGNATURE</h4>
+                    <p class="text-lg font-bold mb-10">비즈니스 에센셜 원페이지</p>
+                    <div class="text-4xl font-black mb-12">120<span class="text-sm font-normal text-gray-500 ml-2">만원</span></div>
+                    <ul class="space-y-4 text-xs font-light text-gray-500 border-t border-white/5 pt-10">
+                        <li>· 하이엔드 맞춤 기획 및 디자인 1P</li>
+                        <li>· 전문직/기업형 모바일 반응형</li>
+                        <li>· 카카오톡/전화 다이렉트 연동</li>
+                        <li>· 2년 서버 및 도메인 무상 지원</li>
                     </ul>
                 </div>
                 
-                <div class="p-10 border border-[#D4AF37] bg-zinc-900 relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-black font-bold text-xs px-4 py-1">MOST POPULAR</div>
-                    <h4 class="text-xl font-bold mb-2 tracking-widest text-[#D4AF37]">SIGNATURE</h4>
-                    <p class="text-gray-400 mb-8 text-sm">프리미엄 브랜딩과 마케팅 최적화</p>
-                    <div class="text-4xl font-black text-white mb-8">150<span class="text-base font-normal text-gray-400"> 만원</span></div>
-                    <ul class="text-sm font-medium space-y-4 text-gray-300">
-                        <li class="text-[#D4AF37]">· 기획 및 카피라이팅 전담 지원</li>
-                        <li class="text-[#D4AF37]">· 2년 서버/도메인 유지비 무상</li>
-                        <li>· 하이엔드 맞춤 디자인 (섹션 무제한)</li>
-                        <li>· 네이버/구글 검색 최적화 (SEO)</li>
-                        <li>· 네이버 플레이스 및 지도 연동</li>
+                <div class="p-12 border-2 border-[#D4AF37] bg-zinc-900 relative md:-translate-y-6 shadow-2xl">
+                    <div class="absolute -top-4 left-10 bg-[#D4AF37] text-black text-[10px] px-4 py-1 font-black tracking-widest">MOST SELECTED</div>
+                    <h4 class="text-xs font-black tracking-[0.4em] mb-4 text-[#D4AF37]">PRESTIGE</h4>
+                    <p class="text-xl font-bold mb-10">전략적 브랜딩 & 검색 최적화</p>
+                    <div class="text-5xl font-black text-white mb-12">180<span class="text-sm font-normal text-gray-500 ml-2">만원</span></div>
+                    <ul class="space-y-4 text-xs font-bold text-gray-300 border-t border-white/10 pt-10">
+                        <li class="text-[#D4AF37]">· 비즈니스 타겟 분석 및 카피라이팅</li>
+                        <li class="text-[#D4AF37]">· 네이버/구글 검색엔진 최적화(SEO)</li>
+                        <li>· 하이엔드 레이아웃 (섹션 무제한)</li>
+                        <li>· 네이버 플레이스 및 지도 최적화 연동</li>
+                        <li>· 2년 서버 및 도메인 무상 지원</li>
                     </ul>
                 </div>
                 
-                <div class="p-10 border border-white/10 bg-zinc-900/50 hover:border-[#D4AF37]/50 transition duration-300">
-                    <h4 class="text-xl font-bold mb-2 tracking-widest text-gray-300">BESPOKE</h4>
-                    <p class="text-gray-500 mb-8 text-sm">다페이지 및 특수 기능 탑재</p>
-                    <div class="text-3xl font-black mb-8">250<span class="text-base font-normal text-gray-400"> 만원 ~</span></div>
-                    <ul class="text-sm font-light space-y-4 text-gray-400">
-                        <li>· 시그니처 플랜 모든 혜택</li>
-                        <li>· 서브 페이지 무제한 확장 가능</li>
-                        <li>· 예약 시스템 및 DB 수집 기능</li>
-                        <li>· 1년 무상 텍스트/이미지 유지보수</li>
+                <div class="p-12 border border-white/5 bg-zinc-900/30 hover:border-[#D4AF37]/40 transition-all duration-500">
+                    <h4 class="text-xs font-black tracking-[0.4em] mb-4 text-gray-500">BOUTIQUE</h4>
+                    <p class="text-lg font-bold mb-10">토탈 브랜딩 & 시스템 구축</p>
+                    <div class="text-4xl font-black mb-12">300<span class="text-sm font-normal text-gray-500 ml-2">만원~</span></div>
+                    <ul class="space-y-4 text-xs font-light text-gray-500 border-t border-white/5 pt-10">
+                        <li>· 프레스티지 플랜 모든 혜택</li>
+                        <li>· 다페이지 확장 및 예약 시스템 연동</li>
+                        <li>· 기업 전용 브랜드 컬러 가이드 제공</li>
+                        <li>· 1년 무상 텍스트/이미지 대행 관리</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="review-wrapper bg-black border-t border-white/10">
+    <section class="review-wrapper bg-black border-t border-white/5">
         <div class="review-track">
-            <div class="review-panel border-r border-white/10 flex-col items-start justify-center p-12 md:p-24 bg-zinc-900">
-                <h3 class="text-5xl md:text-7xl font-black leading-tight mb-6">PROVEN<br><span class="text-accent">TRUST.</span></h3>
-                <p class="text-xl font-light text-gray-400">
-                    까다로운 안목을 가진 대표님들이<br>CHA:Z.를 선택하는 이유.
+            <div class="review-panel border-r border-white/5 flex-col items-start justify-center p-12 md:p-32 bg-zinc-950">
+                <h3 class="text-5xl md:text-8xl font-black tracking-tighter mb-10">PROVEN<br><span class="text-[#D4AF37]">LEGACY.</span></h3>
+                <p class="text-2xl font-light text-gray-500 leading-relaxed italic">
+                    "품격 있는 비즈니스는<br>결코 요란하게 광고하지 않습니다."
                 </p>
             </div>
             
-            <div class="review-panel border-r border-white/10 bg-black">
+            <div class="review-panel border-r border-white/5 bg-black">
                 <div class="max-w-3xl">
-                    <div class="text-6xl text-[#333] mb-6 font-serif">"</div>
-                    <p class="text-2xl md:text-3xl font-light leading-relaxed mb-10 text-gray-200">
-                        개원 준비로 눈코 뜰 새 없이 바빴습니다. 브로슈어 몇 장 드렸을 뿐인데,<br>
-                        <strong class="font-bold text-white border-b border-[#D4AF37]">병원의 철학을 간파한 완벽한 기획과 카피라이팅</strong>을 뽑아내셔서 정말 놀랐습니다.<br>
-                        1000만 원짜리 강남 에이전시 결과물보다 훨씬 세련되었습니다.
+                    <div class="text-7xl text-[#333] mb-10 font-serif">"</div>
+                    <p class="text-2xl md:text-4xl font-light leading-snug mb-12 text-gray-200">
+                        개원 초기 브랜딩이 막막할 때 CHA:Z.를 만났습니다. <strong class="font-bold text-white">단순한 홈페이지가 아니라 저희 병원의 신뢰를 설계</strong>해주셨어요. 대형 에이전시보다 훨씬 깊이 있는 통찰력에 감탄했습니다.
                     </p>
-                    <p class="text-sm font-bold tracking-widest text-[#D4AF37]">청담 OOO 피부과 대표 원장</p>
+                    <p class="text-[10px] font-bold tracking-[0.4em] text-[#D4AF37] uppercase">Medical Director at Cheongdam Clinic</p>
                 </div>
             </div>
             
             <div class="review-panel bg-black">
                 <div class="max-w-3xl">
-                    <div class="text-6xl text-[#333] mb-6 font-serif">"</div>
-                    <p class="text-2xl md:text-3xl font-light leading-relaxed mb-10 text-gray-200">
-                        기존에 매달 내던 호스팅 관리비만 10만 원이 넘었습니다.<br>
-                        차즈로 리뉴얼 후 <strong class="font-bold text-white border-b border-[#D4AF37]">유지비는 0원이 되었고, 예약 전환율은 3배 올랐습니다.</strong><br>
-                        디자인 스킬뿐만 아니라 비즈니스를 이해하는 능력이 탁월합니다.
+                    <div class="text-7xl text-[#333] mb-10 font-serif">"</div>
+                    <p class="text-2xl md:text-4xl font-light leading-snug mb-12 text-gray-200">
+                        법인 설립 후 신뢰도를 높일 수 있는 채널이 필요했습니다. <strong class="font-bold text-white">압도적인 시각적 무게감과 정돈된 카피</strong> 덕분에 VIP 의뢰인들의 문의가 이전보다 확연히 진지해졌습니다.
                     </p>
-                    <p class="text-sm font-bold tracking-widest text-[#D4AF37]">하이엔드 웨딩 스튜디오 OOO 대표</p>
+                    <p class="text-[10px] font-bold tracking-[0.4em] text-[#D4AF37] uppercase">Representative Attorney at Law Firm</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="h-screen flex flex-col justify-center items-center bg-black text-white relative overflow-hidden p-6 text-center border-t border-white/10">
-        <div class="absolute text-[25vw] font-black text-white/[0.02] whitespace-nowrap top-1/2 -translate-y-1/2 select-none tracking-tighter">
-            VVIP
+    <section class="h-screen flex flex-col justify-center items-center bg-black text-white relative overflow-hidden p-8 text-center border-t border-white/5">
+        <div class="absolute text-[25vw] font-black text-white/[0.01] whitespace-nowrap top-1/2 -translate-y-1/2 select-none tracking-tighter">
+            ESTATE
         </div>
         
         <div class="z-10 flex flex-col items-center">
-            <p class="text-lg md:text-xl font-light tracking-widest text-[#D4AF37] mb-6">격이 다른 비즈니스의 시작</p>
-            <h2 class="text-4xl md:text-7xl font-black mb-12 leading-tight">
-                당신의 브랜드 가치를<br>
-                증명할 시간입니다.
+            <p class="text-xs md:text-sm font-bold tracking-[0.5em] text-[#D4AF37] mb-10 uppercase">Selectively Crafted</p>
+            <h2 class="text-4xl md:text-8xl font-black mb-16 leading-[1.1]">
+                격(格)이 다른<br>성공을 완성하십시오.
             </h2>
-            <a href="https://open.kakao.com/o/smhne33h" target="_blank" class="px-10 py-5 bg-[#D4AF37] text-black font-bold text-lg rounded-sm hover:bg-white transition duration-300 flex items-center gap-3">
-                1:1 디렉터 다이렉트 상담하기 →
+            <a href="https://open.kakao.com/o/smhne33h" target="_blank" class="px-14 py-6 bg-[#D4AF37] text-black font-black text-sm md:text-lg rounded-sm hover:bg-white transition-all duration-500 flex items-center gap-4 tracking-[0.2em] shadow-[0_10px_40px_rgba(212,175,55,0.2)]">
+                CONSULT WITH DIRECTOR →
             </a>
-            <p class="mt-6 text-sm text-gray-600 font-light">* 프로젝트 퀄리티 유지를 위해 월 한정된 T/O만 계약을 진행합니다.</p>
+            <p class="mt-10 text-[10px] text-gray-600 font-bold tracking-widest uppercase">Limited Availability : Monthly T/O Only</p>
         </div>
     </section>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        const reviewTrack = document.querySelector('.review-track');
+        // Review Section Horizontal Scroll
         const reviewPanels = gsap.utils.toArray('.review-panel');
-
         gsap.to(reviewPanels, {
             xPercent: -100 * (reviewPanels.length - 1), 
             ease: "none",
@@ -239,7 +235,7 @@
                 trigger: ".review-wrapper",
                 pin: true,          
                 scrub: 1,           
-                end: () => "+=" + reviewTrack.offsetWidth
+                end: () => "+=" + document.querySelector('.review-track').offsetWidth
             }
         });
     </script>
